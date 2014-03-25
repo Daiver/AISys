@@ -20,15 +20,18 @@ next(S,W,G,C) :- checkLoose(W,G,C) , unload(S,W,G,C, Wr,Gr,Cr) , traverse(S,Wr,G
 
 % side wolf goat cabbage
 % 0 - transporting 1,2 - sides
-traverse(S,W,G,C) :- checkWin(S,W,G,C), turn(S,S2),
+
+checkAlready(S) :- g_read(global_vis, G), \+ (member(S, G)), g_assign(global_vis, [S | G]).
+
+traverse(S,W,G,C) :- checkAlready([S,W,G,C]), checkWin(S,W,G,C), turn(S,S2),
     (
         next(S2, 0, G, C) ; 
         next(S2, W, 0, C) ; 
         next(S2, W, G, 0)
     ).
 
-test(A) :- ! , (fail ; !).
-fff(_) :- g_read(f,A), B = [10 | A], g_assign(f,B), member(10, B).
+%test(A) :- ! , (fail ; !).
+%fff(_) :- g_read(f,A), B = [10 | A], g_assign(f,B), member(10, B).
 
 %GLOBAL ::= integer.
 
@@ -38,8 +41,10 @@ fff(_) :- g_read(f,A), B = [10 | A], g_assign(f,B), member(10, B).
 
 main :-
     %F ::= 10,
-    member([2,3], [[2,3], [5,6]]),
-    g_assign(f, [1,2,3]),
-    g_read(f,F), write(F), fff(10), g_read(f, L), nl, write(L)
-    .%test(A),nl,traverse(1,1,1,1),nl,write('END').
+    %member([2,3], [[2,3], [5,6]]),
+    %g_assign(f, [1,2,3]),
+    %g_read(f,F), write(F), fff(10), g_read(f, L), nl, write(L)
+    g_assign(global_vis, []),
+    %test(A),
+    nl,traverse(1,1,1,1),nl,write('END').
 
