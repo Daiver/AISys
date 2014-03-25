@@ -1,5 +1,8 @@
 CC = gplc --no-top-level
 
+vki:
+	$(CC) vki.pro
+
 heap:
 	$(CC) heap.pro
 
