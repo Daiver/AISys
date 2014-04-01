@@ -6,3 +6,6 @@ calc(Atom) :-
 
     tmp(A) :-
         A is 100.
+
+    tmp2(A, B) :-
+        A is 16, B is 42.

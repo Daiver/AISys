@@ -44,6 +44,9 @@ int main(int argc, char **argv)
         int res;
         rval = PL_get_integer(h1, &res);
         printf("res %d\n", res);
+        
+        pred2 = PL_predicate("tmp2", 2, "user");
+
         PL_halt(rval ? 0 : 1);
     }
     return 0;
