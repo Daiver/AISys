@@ -3,3 +3,6 @@ calc(Atom) :-
         A is Expr,
         write(A),
         nl.
+
+    tmp(A) :-
+        A is 100.
