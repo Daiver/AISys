@@ -45,7 +45,12 @@ int main(int argc, char **argv)
         rval = PL_get_integer(h1, &res);
         printf("res %d\n", res);
         
+        h1 = PL_new_term_refs(2);
+        PL_put_integer(h1, 100);
         pred2 = PL_predicate("tmp2", 2, "user");
+        rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
+        rval = PL_get_integer(h1 + 1, &res);
+        printf("res %d\n", res);
 
         PL_halt(rval ? 0 : 1);
     }

@@ -8,4 +8,4 @@ calc(Atom) :-
         A is 100.
 
     tmp2(A, B) :-
-        A is 16, B is 42.
+        B is 42 * A.
