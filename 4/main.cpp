@@ -45,16 +45,18 @@ int main(int argc, char **argv)
         rval = PL_get_integer(h1, &res);
         printf("res %d\n", res);
         
-        h1 = PL_new_term_refs(2);
+        h1 = PL_new_term_refs(3);
         PL_put_integer(h1, 100);
-        pred2 = PL_predicate("tmp2", 2, "user");
+        pred2 = PL_predicate("classify", 3, "user");
         rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
-        char *ch;
+        char *ch, ch2;
         rval = PL_get_chars(h1 + 1, &ch, CVT_WRITE);
+        rval = PL_get_chars(h1 + 2, &ch2, CVT_WRITE);
         //rval = PL_get_atom_chars(h1 + 1, &ch);
         //rval = PL_get_integer(h1 + 1, &res);
         //printf("res %d\n", res);
-        printf("res %s\n", ch);
+        printf("res C %s\n", ch);
+        printf("res P %s\n", ch2);
 
         PL_halt(rval ? 0 : 1);
     }
