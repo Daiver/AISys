@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     { 
         printf("Init succ\n");
         predicate_t pred = PL_predicate("calc", 1, "user");
-        term_t h0 = PL_new_term_refs(1);
+        /*term_t h0 = PL_new_term_refs(1);
         int rval;
         //PL_put_atom_chars(h0, expression);
         //rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred, h0);
@@ -43,20 +43,22 @@ int main(int argc, char **argv)
         rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
         int res;
         rval = PL_get_integer(h1, &res);
-        printf("res %d\n", res);
+        printf("res %d\n", res);*/
         
-        h1 = PL_new_term_refs(3);
+        term_t h1 = PL_new_term_refs(3);
         PL_put_integer(h1, 100);
-        pred2 = PL_predicate("classify", 3, "user");
-        rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
-        char *ch, ch2;
+        //pred2 = PL_predicate("tmp2", 3, "user");
+        predicate_t pred2 = PL_predicate("classify", 3, "user");
+
+        int rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
+        char *ch;
         rval = PL_get_chars(h1 + 1, &ch, CVT_WRITE);
-        rval = PL_get_chars(h1 + 2, &ch2, CVT_WRITE);
         //rval = PL_get_atom_chars(h1 + 1, &ch);
         //rval = PL_get_integer(h1 + 1, &res);
         //printf("res %d\n", res);
-        printf("res C %s\n", ch);
-        printf("res P %s\n", ch2);
+        printf("res %s\n", ch);
+        rval = PL_get_chars(h1 + 2, &ch, CVT_WRITE);
+        printf("res %s\n", ch);
 
         PL_halt(rval ? 0 : 1);
     }
