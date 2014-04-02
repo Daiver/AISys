@@ -10,18 +10,18 @@
 
 :-dynamic(example/3).
 
-example(1,  approve, [emp=yes, buy=comp, sex=f, married=no]).
-example(2,  reject,  [emp=no,  buy=comp, sex=f, married=yes]).
-example(3,  approve, [emp=yes, buy=comp, sex=m, married=no]).
-example(4,  approve, [emp=yes, buy=car,  sex=f, married=yes]).
-example(5,  reject,  [emp=yes, buy=car,  sex=f, married=no]).
-example(6,  approve, [emp=yes, buy=comp, sex=f, married=yes]).
-example(7,  approve, [emp=yes, buy=comp, sex=f, married=no]).
-example(8,  approve, [emp=yes, buy=comp, sex=m, married=no]).
-example(9,  approve, [emp=yes, buy=comp, sex=m, married=yes]).
-example(10, approve, [emp=yes, buy=comp, sex=m, married=yes]).
-example(11, reject,  [emp=no,  buy=comp, sex=m, married=yes]).
-example(12, reject,  [emp=no,  buy=car,  sex=f, married=yes]).
+example(1,  'approve', [emp=yes, buy=comp, sex=f, married=no]).
+example(2,  'reject',  [emp=no,  buy=comp, sex=f, married=yes]).
+example(3,  'approve', [emp=yes, buy=comp, sex=m, married=no]).
+example(4,  'approve', [emp=yes, buy=car,  sex=f, married=yes]).
+example(5,  'reject',  [emp=yes, buy=car,  sex=f, married=no]).
+example(6,  'approve', [emp=yes, buy=comp, sex=f, married=yes]).
+example(7,  'approve', [emp=yes, buy=comp, sex=f, married=no]).
+example(8,  'approve', [emp=yes, buy=comp, sex=m, married=no]).
+example(9,  'approve', [emp=yes, buy=comp, sex=m, married=yes]).
+example(10, 'approve', [emp=yes, buy=comp, sex=m, married=yes]).
+example(11, 'reject',  [emp=no,  buy=comp, sex=m, married=yes]).
+example(12, 'reject',  [emp=no,  buy=car,  sex=f, married=yes]).
 
 
 /* For classification (assume that the class is unknown):
