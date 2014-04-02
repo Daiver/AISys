@@ -36,7 +36,7 @@ int main(int argc, char **argv)
         term_t h1 = PL_new_term_refs(6);
 
         char ans;
-        printf("Тест на вероятность получения кредита\n");
+        printf("\n\n\n===Тест на вероятность получения кредита===\n\n");
         printf("Вы работаете? [y/n]\n");
         std::cin >> ans;
         PL_put_integer(h1, ans == 'y');
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
         printf("Вы мужчина? [y/n]\n");
         std::cin >> ans;
         PL_put_integer(h1 + 2, ans == 'y');
-        if (ans)
+        if (ans == 'y')
             printf("Вы женаты? [y/n]\n");
         else
             printf("Вы замужем? [y/n]\n");
