@@ -31,33 +31,20 @@ int main(int argc, char **argv)
     /* Lookup calc/1 and make the arguments and call */
     { 
         printf("Init succ\n");
-        predicate_t pred = PL_predicate("calc", 1, "user");
-        /*term_t h0 = PL_new_term_refs(1);
-        int rval;
-        //PL_put_atom_chars(h0, expression);
-        //rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred, h0);
-        //PL_halt(rval ? 0 : 1);
-
-        predicate_t pred2 = PL_predicate("tmp", 1, "user");
-        term_t h1 = PL_new_term_refs(1);
-        rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
-        int res;
-        rval = PL_get_integer(h1, &res);
-        printf("res %d\n", res);*/
-        
-        term_t h1 = PL_new_term_refs(3);
-        PL_put_integer(h1, 100);
+       
+        term_t h1 = PL_new_term_refs(6);
+        PL_put_integer(h1, 0);
+        PL_put_integer(h1 + 1, 0);
+        PL_put_integer(h1 + 2, 1);
+        PL_put_integer(h1 + 3, 1);
         //pred2 = PL_predicate("tmp2", 3, "user");
-        predicate_t pred2 = PL_predicate("classify", 3, "user");
+        predicate_t pred2 = PL_predicate("classify", 6, "user");
 
         int rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
         char *ch;
-        rval = PL_get_chars(h1 + 1, &ch, CVT_WRITE);
-        //rval = PL_get_atom_chars(h1 + 1, &ch);
-        //rval = PL_get_integer(h1 + 1, &res);
-        //printf("res %d\n", res);
+        rval = PL_get_chars(h1 + 4, &ch, CVT_WRITE);
         printf("res %s\n", ch);
-        rval = PL_get_chars(h1 + 2, &ch, CVT_WRITE);
+        rval = PL_get_chars(h1 + 5, &ch, CVT_WRITE);
         printf("res %s\n", ch);
 
         PL_halt(rval ? 0 : 1);
@@ -66,6 +53,9 @@ int main(int argc, char **argv)
 }
 
 
+        //rval = PL_get_atom_chars(h1 + 1, &ch);
+        //rval = PL_get_integer(h1 + 1, &res);
+        //printf("res %d\n", res);
 /*
 #include <iostream>
 #include <SWI-Prolog.h>
@@ -94,3 +84,17 @@ int main(void){
  return 0;
 }
 */
+        //predicate_t pred = PL_predicate("calc", 1, "user");
+        /*term_t h0 = PL_new_term_refs(1);
+        int rval;
+        //PL_put_atom_chars(h0, expression);
+        //rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred, h0);
+        //PL_halt(rval ? 0 : 1);
+
+        predicate_t pred2 = PL_predicate("tmp", 1, "user");
+        term_t h1 = PL_new_term_refs(1);
+        rval = PL_call_predicate(NULL, PL_Q_NORMAL, pred2, h1);
+        int res;
+        rval = PL_get_integer(h1, &res);
+        printf("res %d\n", res);*/
+ 
